@@ -1,0 +1,40 @@
+{
+  "project": "agent-project",
+  "description": "Cola SDD para sistema de agentes basico",
+  "rules": {
+    "one_feature_at_a_time": true,
+    "require_approved_spec_to_implement": true,
+    "valid_status": ["pending", "spec_ready", "in_progress", "done", "blocked"],
+    "sdd_required_when": "feature has sdd=true",
+    "feature_name_pattern": "lowercase kebab-case matching specs/<name>/",
+    "baseline_verification": "python scripts/harness_init.py"
+  },
+  "features": [
+    {
+      "id": 1,
+      "name": "primera-feature-ejemplo",
+      "title": "Feature ejemplo para arrancar el flujo",
+      "description": "Feature semilla para demostrar el circuito SDD.",
+      "acceptance": [
+        "Existe carpeta specs/primera-feature-ejemplo con los 3 archivos base",
+        "La feature pasa de pending a spec_ready solo tras redactar spec"
+      ],
+      "status": "pending",
+      "sdd": true
+    },
+    {
+      "id": 900,
+      "name": "titulares-elpais-a-pdf",
+      "title": "Listar librerias Python y generar PDF de titulares de El Pais",
+      "description": "Definir una solucion que, dada la URL https://elpais.com/, obtenga titulares y devuelva un listado en PDF junto con las librerias Python necesarias.",
+      "acceptance": [
+        "El sistema identifica y muestra todas las librerias Python requeridas para ejecutar el flujo",
+        "Dada la URL https://elpais.com/, el sistema extrae titulares y genera un PDF con listado legible",
+        "Se define manejo de errores para URL invalida, cambios de estructura HTML y fallo al escribir el PDF",
+        "La implementacion usa patron POM con responsabilidades separadas para acceso a pagina y extraccion de datos"
+      ],
+      "status": "done",
+      "sdd": true
+    }
+  ]
+}
